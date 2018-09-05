@@ -1,0 +1,58 @@
+@import "base.less";
+// 主题页面
+#main{
+    background-color: #fff;
+    .search-form{
+        display: flex;
+        padding: 10px 10px 0px 10px;
+        .input-search{
+            height: 30px;
+            flex: 1;
+            background-color: #fff;
+            font-size: 14px;
+            text-align: left;
+            border: 1px solid @mainColor;
+            border-radius: 6px 0px 0px 6px;
+        }
+        .btn-search{
+            width: 60px;
+            height: 30px;
+            border-color: @mainColor;
+            background-color: @mainColor;
+            border-radius: 0px 6px 6px 0px;
+        }
+    }
+    .search-history{
+        padding:0 10px;
+        .title{
+            .mui-pull-left{
+                font-size: 14px;
+                color: #666;
+            }
+            .mui-pull-right{
+                    display: block;
+                    font-size: 14px;   
+            }
+        }
+        .content{
+
+            >ul{
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                >li{
+                    
+                    line-height: 40px;
+                    height: 40px;
+                    padding-left: 10px;
+                    border-bottom: 1px solid #ccc;
+                    i{
+                        width: 40px;
+                        height: 40px;
+                        text-align: center;
+                        line-height: 40px;
+                    }
+                }
+            }
+        }
+    }
+}

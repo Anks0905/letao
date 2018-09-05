@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+    </ul>
+    <script src="public/m/lib/artTemplate/template-web.js"></script>
+    <script id="listTmp" type="text/html">
+        <!-- 如果调用模板传递的参数是一个数组 类型的数据 each后面什么都不能写  $value循环的每一个值 $index 循环的索引  这2个变量是模板引擎自带的-->
+        <!-- {{each}} -->
+        <!-- <li>{{$value}}===={{$index}}</li> -->
+        <!-- {{/each}} -->
+        <li>
+        		<!-- 调用模板传递的参数是一个对象 并且对象的属性的值是简单类型 就可以直接使用属性名 -->
+        		姓名： {{name}}
+        </li>
+        <li>
+           年龄： {{age}}</li>
+        <li>
+           性别： {{sex}}
+         </li>
+         <li>
+         <!-- 	如果直接使用复杂类型数据 就把复杂类型转成字符串 -->
+          对象：
+          	<ul>
+          		{{each girlFriend value}}
+          		<li>姓名：{{value.name}}</li>
+          		<li>年龄：{{value.age}}</li>
+          		{{/each}}
+          	</ul>
+         </li>
+    </script>
+    <script>
+    // // 有一个数组
+    // var arr = ['张三','李四','王五'];
+    // //调用模板引擎 但是传入的值是一个数组
+    // var html = template('listTmp',arr)
+    // console.log(html);
+    // document.querySelector('ul').innerHTML = html;
+    //有一个对象
+    var obj = {
+        name: '张三',
+        age: 18,
+        sex:'男',
+        girlFriend:[{
+        	name:'小红',
+        	age:16
+        },{
+        	name:'小花',
+        	age:20
+        },{
+        	name:'抹茶妹妹',
+			age:25
+        }
+        ,{
+        	name:'婷姐',
+        	age:22
+        }]
+    };
+    //你们之前包在了list数组 你们以前each list
+    var html = template("listTmp", {'list':obj.girlFriend});
+    // 现在我对象里面的值已经是数组 数组名叫girlFriend 现在就是obj对象里面的数组名是什么each什么 each girlFriend 
+    var html = template("listTmp", obj);
+    console.log(html);
+    document.querySelector('ul').innerHTML = html;
+    </script>
+</body>
+
+</html>
